@@ -59,9 +59,10 @@ public class LanzarDado extends AppCompatActivity {
     public String lanzar() {
         suma = 0;
         Random random = new Random();
+        int numeroDado;
         if (valor_maximo == -10) {
             // Número aleatorio entre 0 y 9 multiplicado por 10
-            int numeroDado = random.nextInt(10)*10;
+            numeroDado = random.nextInt(10)*10;
             suma = numeroDado;
             return String.valueOf(numeroDado);
         } else {
@@ -69,7 +70,7 @@ public class LanzarDado extends AppCompatActivity {
             for (int i = 0; i < cantidad; i++) {
                 if (i > 0) resultado.append(", ");
                 // Número aleatorio entre 1 y valor_maximo
-                int numeroDado = random.nextInt(valor_maximo) + 1;
+                numeroDado = random.nextInt(valor_maximo) + 1;
                 suma = suma + numeroDado;
                 resultado.append(numeroDado);
             }
