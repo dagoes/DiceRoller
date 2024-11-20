@@ -2,8 +2,8 @@ package com.example.diceroller.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,10 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diceroller.database.DBHelper;
+import com.example.diceroller.database.*;
 import com.example.diceroller.R;
-import com.example.diceroller.database.Entry;
-import com.example.diceroller.database.EntryAdapter;
 
 import java.util.List;
 

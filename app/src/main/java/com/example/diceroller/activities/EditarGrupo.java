@@ -2,9 +2,7 @@ package com.example.diceroller.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,71 +37,12 @@ public class EditarGrupo extends AppCompatActivity {
             editTextValorMaximo.setText(val);
         }
 
-        editTextCantidad.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                // Validar que el texto contenga solo números
-                if (!charSequence.toString().matches("[0-9]*")) {
-                    // Si contiene caracteres no numéricos, eliminar el último carácter
-                    editTextCantidad.setText(charSequence.toString().replaceAll("[^0-9]", ""));
-                    editTextCantidad.setSelection(editTextCantidad.getText().length()); // Poner el cursor al final
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
-        editTextValorMaximo.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                // Validar que el texto contenga solo números
-                if (!charSequence.toString().matches("[0-9]*")) {
-                    // Si contiene caracteres no numéricos, eliminar el último carácter
-                    editTextValorMaximo.setText(charSequence.toString().replaceAll("[^0-9]", ""));
-                    editTextValorMaximo.setSelection(editTextValorMaximo.getText().length()); // Poner el cursor al final
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
         Button btnGuardar = findViewById(R.id.buttonGuardar);
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (TextUtils.isEmpty(editTextCantidad.getText().toString()) ||
-                        TextUtils.isEmpty(editTextValorMaximo.getText().toString())) {
-                    Toast.makeText(EditarGrupo.this,"Rellene ambos campos",Toast.LENGTH_SHORT).show();
-                } else {
-                    int cantidad = Integer.parseInt(editTextCantidad.getText().toString());
-                    int valor_maximo = Integer.parseInt(editTextValorMaximo.getText().toString());
-
-                    if (entryId == -1) {
-                        dbHelper.addEntry(cantidad, valor_maximo);  // Nuevo elemento
-                        Toast.makeText(EditarGrupo.this,"Nuevo grupo creado",Toast.LENGTH_SHORT).show();
-                    } else {
-                        dbHelper.updateEntry(entryId, cantidad, valor_maximo);  // Actualizar elemento existente
-                        Toast.makeText(EditarGrupo.this,"Grupo modificado",Toast.LENGTH_SHORT).show();
-                    }
-                    finish();
-                }
+                if  (modificar()) finish();
             }
         });
 
@@ -115,5 +54,25 @@ public class EditarGrupo extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public boolean modificar(){
+        boolean hecho = false;
+        if (TextUtils.isEmpty(editTextCantidad.getText().toString()) ||
+                TextUtils.isEmpty(editTextValorMaximo.getText().toString())) {
+            Toast.makeText(EditarGrupo.this,"Rellene ambos campos",Toast.LENGTH_SHORT).show();
+        } else {
+            int cantidad = Integer.parseInt(editTextCantidad.getText().toString());
+            int valor_maximo = Integer.parseInt(editTextValorMaximo.getText().toString());
+            if (entryId == -1) {
+                dbHelper.addEntry(cantidad, valor_maximo);  // Nuevo elemento
+                Toast.makeText(EditarGrupo.this,"Nuevo grupo creado",Toast.LENGTH_SHORT).show();
+            } else {
+                dbHelper.updateEntry(entryId, cantidad, valor_maximo);  // Actualizar elemento existente
+                Toast.makeText(EditarGrupo.this,"Grupo modificado",Toast.LENGTH_SHORT).show();
+            }
+            hecho = true;
+        }
+        return hecho;
     }
 }
