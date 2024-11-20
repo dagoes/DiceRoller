@@ -1,38 +1,90 @@
 package com.example.diceroller.menu;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.diceroller.DBHelper;
 import com.example.diceroller.R;
 
 public class EditarGrupo extends AppCompatActivity {
+    private EditText editTextCantidad, editTextValorMaximo;
+    private DBHelper dbHelper;
+    private int entryId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editgroup);
 
+        dbHelper = new DBHelper(this);
+
+        editTextCantidad = findViewById(R.id.editTextCantidad);
+        editTextValorMaximo = findViewById(R.id.editTextValorMaximo);
+
+        editTextCantidad.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                // Validar que el texto contenga solo números
+                if (!charSequence.toString().matches("[0-9]*")) {
+                    // Si contiene caracteres no numéricos, eliminar el último carácter
+                    editTextCantidad.setText(charSequence.toString().replaceAll("[^0-9]", ""));
+                    editTextCantidad.setSelection(editTextCantidad.getText().length()); // Poner el cursor al final
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        editTextValorMaximo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                // Validar que el texto contenga solo números
+                if (!charSequence.toString().matches("[0-9]*")) {
+                    // Si contiene caracteres no numéricos, eliminar el último carácter
+                    editTextValorMaximo.setText(charSequence.toString().replaceAll("[^0-9]", ""));
+                    editTextValorMaximo.setSelection(editTextValorMaximo.getText().length()); // Poner el cursor al final
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         Button btnGuardar = findViewById(R.id.buttonGuardar);
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //crear script para crear/actualizar una entrada en la base de datos
-            }
-        });
+                int cantidad = Integer.parseInt(editTextCantidad.getText().toString());
+                int valor_maximo = Integer.parseInt(editTextValorMaximo.getText().toString());
 
-        Button btnLanzar = findViewById(R.id.buttonIrALanzar);
-
-        btnLanzar.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                //Script para recoger datos
-                Intent intent = new Intent(EditarGrupo.this, LanzarDado.class);
-                startActivity(intent);
+                if (entryId == -1) {
+                    dbHelper.addEntry(cantidad, valor_maximo);  // Nuevo elemento
+                } else {
+                    dbHelper.updateEntry(entryId, cantidad, valor_maximo);  // Actualizar elemento existente
+                }
+                finish();
             }
         });
 

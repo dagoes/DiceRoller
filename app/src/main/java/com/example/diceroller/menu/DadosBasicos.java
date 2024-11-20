@@ -1,6 +1,7 @@
 package com.example.diceroller.menu;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,11 @@ public class DadosBasicos extends AppCompatActivity {
 
         btnD2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("cantidad", 1);
+                editor.putInt("valor_maximo", 2);
+                editor.apply();
                 lanzar();
             }
         });
@@ -41,6 +47,11 @@ public class DadosBasicos extends AppCompatActivity {
 
         btnD4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("cantidad", 1);
+                editor.putInt("valor_maximo", 4);
+                editor.apply();
                 lanzar();
             }
         });
@@ -49,6 +60,11 @@ public class DadosBasicos extends AppCompatActivity {
 
         btnD6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("cantidad", 1);
+                editor.putInt("valor_maximo", 6);
+                editor.apply();
                 lanzar();
             }
         });
@@ -57,6 +73,11 @@ public class DadosBasicos extends AppCompatActivity {
 
         btnD8.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("cantidad", 1);
+                editor.putInt("valor_maximo", 8);
+                editor.apply();
                 lanzar();
             }
         });
@@ -65,6 +86,11 @@ public class DadosBasicos extends AppCompatActivity {
 
         btnD10.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("cantidad", 1);
+                editor.putInt("valor_maximo", 10);
+                editor.apply();
                 lanzar();
             }
         });
@@ -73,6 +99,11 @@ public class DadosBasicos extends AppCompatActivity {
 
         btnD00.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("cantidad", 1);
+                editor.putInt("valor_maximo", -10);
+                editor.apply();
                 lanzar();
             }
         });
@@ -81,6 +112,11 @@ public class DadosBasicos extends AppCompatActivity {
 
         btnD12.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("cantidad", 1);
+                editor.putInt("valor_maximo", 12);
+                editor.apply();
                 lanzar();
             }
         });
@@ -89,6 +125,11 @@ public class DadosBasicos extends AppCompatActivity {
 
         btnD20.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("cantidad", 1);
+                editor.putInt("valor_maximo", 20);
+                editor.apply();
                 lanzar();
             }
         });

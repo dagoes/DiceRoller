@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -15,71 +16,66 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:padding="8dp"
             android:text="Editar Grupo de Dados"
             android:textAlignment="center"
             android:textSize="28sp"
-            android:textStyle="bold"
-            android:padding="8dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="8dp"
             android:text="Dados a lanzar:"
-            android:textSize="20sp"
-            android:padding="8dp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/editTextCantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
             android:hint="Minimo 1"
+            android:inputType="number"
             android:paddingHorizontal="8dp" />
 
         <TextView
             android:id="@+id/textV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="8dp"
             android:text="Valor Maximo:"
-            android:textSize="20sp"
-            android:padding="8dp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/editTextValorMaximo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
             android:hint="Minimo 2"
+            android:inputType="number"
             android:paddingHorizontal="8dp" />
-
-        <Button
-            android:id="@+id/buttonGuardar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:text="Guardar"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/buttonIrALanzar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:text="@string/lanzar"
-            android:textSize="20sp" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonVolver2"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonGuardar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginHorizontal="120dp"
+        android:layout_marginVertical="16dp"
+        android:text="Guardar"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonVolver2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonVolver2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="120dp"
+        android:layout_marginVertical="16dp"
         android:text="@string/volver"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

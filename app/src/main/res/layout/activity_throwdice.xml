@@ -67,11 +67,11 @@
             android:paddingHorizontal="8dp" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:id="@+id/buttonLanzar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
+            android:layout_marginHorizontal="120dp"
+            android:layout_marginVertical="16dp"
             android:text="@string/lanzar"
             android:textSize="20sp" />
 
@@ -79,10 +79,11 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnVolver"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonVolver1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginHorizontal="120dp"
+        android:layout_marginVertical="16dp"
         android:text="@string/volver"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
