@@ -1,4 +1,4 @@
-package com.example.diceroller.menu;
+package com.example.diceroller.activities;
 
 import android.os.Bundle;
 import android.view.View;

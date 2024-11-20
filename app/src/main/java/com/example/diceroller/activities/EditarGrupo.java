@@ -1,4 +1,4 @@
-package com.example.diceroller.menu;
+package com.example.diceroller.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.diceroller.DBHelper;
+import com.example.diceroller.database.DBHelper;
 import com.example.diceroller.R;
 
 public class EditarGrupo extends AppCompatActivity {

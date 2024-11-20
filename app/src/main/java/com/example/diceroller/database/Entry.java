@@ -1,4 +1,4 @@
-package com.example.diceroller.menu;
+package com.example.diceroller.database;
 
 public class Entry {
     private int id, cantidad, valor_maximo;

@@ -1,4 +1,4 @@
-package com.example.diceroller.menu;
+package com.example.diceroller.database;
 
 import android.content.Context;
 import android.view.LayoutInflater;

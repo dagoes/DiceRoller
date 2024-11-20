@@ -1,4 +1,4 @@
-package com.example.diceroller.menu;
+package com.example.diceroller.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,8 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.diceroller.DBHelper;
+import com.example.diceroller.database.DBHelper;
 import com.example.diceroller.R;
+import com.example.diceroller.database.Entry;
+import com.example.diceroller.database.EntryAdapter;
 
 import java.util.List;
 

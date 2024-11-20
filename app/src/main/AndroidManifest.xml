@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DiceRoller"
         tools:targetApi="31">
-        <activity android:name=".menu.DadosBasicos" />
-        <activity android:name=".menu.EditarGrupo" />
-        <activity android:name=".menu.LanzarDado" />
-        <activity android:name=".menu.Opciones" />
-        <activity android:name=".menu.VerGrupos" />
+        <activity android:name=".activities.DadosBasicos" />
+        <activity android:name=".activities.EditarGrupo" />
+        <activity android:name=".activities.LanzarDado" />
+        <activity android:name=".activities.Opciones" />
+        <activity android:name=".activities.VerGrupos" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

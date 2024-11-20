@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.diceroller.menu.Opciones;
-import com.example.diceroller.menu.VerGrupos;
-import com.example.diceroller.menu.DadosBasicos;
+import com.example.diceroller.activities.Opciones;
+import com.example.diceroller.activities.VerGrupos;
+import com.example.diceroller.activities.DadosBasicos;
 
 public class MainActivity extends AppCompatActivity {
 

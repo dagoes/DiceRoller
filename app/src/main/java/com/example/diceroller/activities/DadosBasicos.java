@@ -1,4 +1,4 @@
-package com.example.diceroller.menu;
+package com.example.diceroller.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
