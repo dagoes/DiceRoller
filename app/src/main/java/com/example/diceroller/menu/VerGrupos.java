@@ -71,7 +71,7 @@ public class VerGrupos extends AppCompatActivity {
     private void onItemClick(Entry entry) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(entry.getCantidad()+"D"+entry.getValorMaximo());
-        builder.setItems(new CharSequence[]{"Lanzar","Edit", "Delete"}, new DialogInterface.OnClickListener() {
+        builder.setItems(new CharSequence[]{"Lanzar","Editar", "Borrar"}, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {

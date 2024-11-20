@@ -1,5 +1,6 @@
 package com.example.diceroller.menu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -26,6 +27,15 @@ public class EditarGrupo extends AppCompatActivity {
 
         editTextCantidad = findViewById(R.id.editTextCantidad);
         editTextValorMaximo = findViewById(R.id.editTextValorMaximo);
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("id")) {
+            entryId = intent.getIntExtra("id", -1);
+            String cant = intent.getIntExtra("cantidad",-1)+"";
+            editTextCantidad.setText(cant);
+            String val = intent.getIntExtra("valor_maximo",-1)+"";
+            editTextValorMaximo.setText(val);
+        }
 
         editTextCantidad.addTextChangedListener(new TextWatcher() {
             @Override
