@@ -22,21 +22,6 @@
             android:padding="8dp"/>
 
         <TextView
-            android:id="@+id/textD"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dados:"
-            android:textSize="20sp"
-            android:padding="8dp" />
-
-        <TextView
-            android:id="@+id/textDados"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:paddingHorizontal="8dp" />
-
-        <TextView
             android:id="@+id/textR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
