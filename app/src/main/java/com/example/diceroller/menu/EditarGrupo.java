@@ -3,10 +3,12 @@ package com.example.diceroller.menu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -86,15 +88,22 @@ public class EditarGrupo extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int cantidad = Integer.parseInt(editTextCantidad.getText().toString());
-                int valor_maximo = Integer.parseInt(editTextValorMaximo.getText().toString());
-
-                if (entryId == -1) {
-                    dbHelper.addEntry(cantidad, valor_maximo);  // Nuevo elemento
+                if (TextUtils.isEmpty(editTextCantidad.getText().toString()) ||
+                        TextUtils.isEmpty(editTextValorMaximo.getText().toString())) {
+                    Toast.makeText(EditarGrupo.this,"Rellene ambos campos",Toast.LENGTH_SHORT).show();
                 } else {
-                    dbHelper.updateEntry(entryId, cantidad, valor_maximo);  // Actualizar elemento existente
+                    int cantidad = Integer.parseInt(editTextCantidad.getText().toString());
+                    int valor_maximo = Integer.parseInt(editTextValorMaximo.getText().toString());
+
+                    if (entryId == -1) {
+                        dbHelper.addEntry(cantidad, valor_maximo);  // Nuevo elemento
+                        Toast.makeText(EditarGrupo.this,"Nuevo grupo creado",Toast.LENGTH_SHORT).show();
+                    } else {
+                        dbHelper.updateEntry(entryId, cantidad, valor_maximo);  // Actualizar elemento existente
+                        Toast.makeText(EditarGrupo.this,"Grupo modificado",Toast.LENGTH_SHORT).show();
+                    }
+                    finish();
                 }
-                finish();
             }
         });
 
