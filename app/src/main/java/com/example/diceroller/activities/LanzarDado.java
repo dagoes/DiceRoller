@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,37 +29,26 @@ public class LanzarDado extends AppCompatActivity {
         TextView textSuma = findViewById(R.id.textSuma);
 
         sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
-        Boolean ultima_tirada = sharedPreferences.getBoolean("ultima_tirada", false);
-        Boolean sonido = sharedPreferences.getBoolean("sonido", true);
         cantidad = sharedPreferences.getInt("cantidad", 0);
         valor_maximo = sharedPreferences.getInt("valor_maximo", 0);
-
-        if(!ultima_tirada){ultimaTirada();}
-
-        String titulo = "Lanzar "+cantidad+"D";
-        if (valor_maximo == -10) {
-            titulo = titulo +"00";
-        } else {
-            titulo = titulo +valor_maximo;
-        }
-        textTitulo.setText(titulo);
-
-        Button btnLanzar = findViewById(R.id.buttonLanzar);
+        Boolean sonido = sharedPreferences.getBoolean("sonido", true);
 
         mediaPlayer = MediaPlayer.create(LanzarDado.this, R.raw.dice_roll);
+
+        textTitulo.setText(crearTitulo());
+
+        Button btnLanzar = findViewById(R.id.buttonLanzar);
 
         btnLanzar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sonido && mediaPlayer != null) {
-                    mediaPlayer.start();
-                }
+                if (sonido && mediaPlayer != null) mediaPlayer.start();
                 textResultado.setText(lanzar());
                 textSuma.setText(String.valueOf(suma));
             }
         });
 
-        Button btnVolver = findViewById(R.id.buttonVolver1);
+        ImageButton btnVolver = findViewById(R.id.imageButtonVolver4);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,10 +68,14 @@ public class LanzarDado extends AppCompatActivity {
         }
     }
 
-    private void ultimaTirada() {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("ultima_tirada", true);
-        editor.apply();
+    private String crearTitulo() {
+        String titulo = "Lanzar "+cantidad+"D";
+        if (valor_maximo == -10) {
+            titulo = titulo +"00";
+        } else {
+            titulo = titulo +valor_maximo;
+        }
+        return titulo;
     }
 
     private String lanzar() {

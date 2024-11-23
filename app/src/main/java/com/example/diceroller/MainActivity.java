@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnUltimaTirada = findViewById(R.id.buttonUltimaTirada);
-        ultimaTirada();
 
         btnUltimaTirada.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,14 +63,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        ultimaTirada();
-    }
-
-    private void ultimaTirada() {
+    protected void onStart() {
+        super.onStart();
         SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
-        Boolean ultima_tirada = sharedPreferences.getBoolean("ultima_tirada", false);
+        boolean ultima_tirada = sharedPreferences.getBoolean("ultima_tirada", false);
         btnUltimaTirada.setEnabled(ultima_tirada);
     }
 }

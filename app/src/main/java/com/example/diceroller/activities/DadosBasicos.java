@@ -109,6 +109,7 @@ public class DadosBasicos extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("cantidad", cantidad);
         editor.putInt("valor_maximo", valor_maximo);
+        editor.putBoolean("ultima_tirada", true);
         editor.apply();
         Intent intent = new Intent(DadosBasicos.this, LanzarDado.class);
         startActivity(intent);

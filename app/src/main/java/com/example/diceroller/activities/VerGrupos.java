@@ -80,6 +80,7 @@ public class VerGrupos extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putInt("cantidad", entry.getCantidad());
                         editor.putInt("valor_maximo", entry.getValorMaximo());
+                        editor.putBoolean("ultima_tirada", true);
                         editor.apply();
                         Intent intent = new Intent(VerGrupos.this, LanzarDado.class);
                         startActivity(intent);

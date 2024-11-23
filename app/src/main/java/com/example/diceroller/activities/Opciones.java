@@ -16,6 +16,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class Opciones extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
+    private SwitchMaterial switchSonido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +24,9 @@ public class Opciones extends AppCompatActivity {
         setContentView(R.layout.activity_options);
 
         sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
-
-        SwitchMaterial switchSonido = findViewById(R.id.switchSonido);
-
         boolean switchState = sharedPreferences.getBoolean("sonido", true);
+
+        switchSonido = findViewById(R.id.switchSonido);
         switchSonido.setChecked(switchState);
 
         switchSonido.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -77,5 +77,7 @@ public class Opciones extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
+
+        switchSonido.setChecked(true);
     }
 }
