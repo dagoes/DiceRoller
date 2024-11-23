@@ -1,6 +1,7 @@
 package com.example.diceroller.activities;
 
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,9 @@ import com.example.diceroller.R;
 import java.util.Random;
 
 public class LanzarDado extends AppCompatActivity {
+    private SharedPreferences sharedPreferences;
     private int cantidad, valor_maximo, suma;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +27,13 @@ public class LanzarDado extends AppCompatActivity {
         TextView textResultado = findViewById(R.id.textResultado);
         TextView textSuma = findViewById(R.id.textSuma);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+        Boolean ultima_tirada = sharedPreferences.getBoolean("ultima_tirada", false);
+        Boolean sonido = sharedPreferences.getBoolean("sonido", true);
         cantidad = sharedPreferences.getInt("cantidad", 0);
         valor_maximo = sharedPreferences.getInt("valor_maximo", 0);
+
+        if(!ultima_tirada){ultimaTirada();}
 
         String titulo = "Lanzar "+cantidad+"D";
         if (valor_maximo == -10) {
@@ -38,9 +45,14 @@ public class LanzarDado extends AppCompatActivity {
 
         Button btnLanzar = findViewById(R.id.buttonLanzar);
 
+        mediaPlayer = MediaPlayer.create(LanzarDado.this, R.raw.dice_roll);
+
         btnLanzar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (sonido && mediaPlayer != null) {
+                    mediaPlayer.start();
+                }
                 textResultado.setText(lanzar());
                 textSuma.setText(String.valueOf(suma));
             }
@@ -56,7 +68,23 @@ public class LanzarDado extends AppCompatActivity {
         });
     }
 
-    public String lanzar() {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Liberar los recursos de MediaPlayer cuando la actividad se destruye
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
+    private void ultimaTirada() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("ultima_tirada", true);
+        editor.apply();
+    }
+
+    private String lanzar() {
         suma = 0;
         Random random = new Random();
         int numeroDado;

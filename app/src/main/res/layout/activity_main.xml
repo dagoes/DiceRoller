@@ -22,8 +22,19 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="64dp"
         android:layout_marginVertical="8dp"
-        android:text="Grupos de Dados Personalizados"
+        android:text="Personalizar Grupos de Dados"
         app:layout_constraintTop_toBottomOf="@+id/buttonUnDado" />
+
+    <Button
+        android:id="@+id/buttonUltimaTirada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="64dp"
+        android:layout_marginVertical="8dp"
+        android:enabled="false"
+        android:text="Repetir Ultimo Lanzamiento"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGrupos"
+        tools:layout_editor_absoluteX="64dp" /> />
 
     <Button
         android:id="@+id/buttonOpciones"
@@ -32,7 +43,7 @@
         android:layout_marginHorizontal="64dp"
         android:layout_marginVertical="8dp"
         android:text="Opciones"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGrupos" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonUltimaTirada" />
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -42,6 +53,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" /> <!-- Crear un logo y cambiar el src -->
+        app:srcCompat="@drawable/dice_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
