@@ -33,8 +33,6 @@ public class VerGrupos extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        loadEntries();
-
         Button btnNuevo = findViewById(R.id.buttonNuevo);
 
         btnNuevo.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +73,7 @@ public class VerGrupos extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
-                    case 0:
+                    case 0:  // Llamar a LanzarDado para editar
                         SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putInt("cantidad", entry.getCantidad());
@@ -85,7 +83,7 @@ public class VerGrupos extends AppCompatActivity {
                         Intent intent = new Intent(VerGrupos.this, LanzarDado.class);
                         startActivity(intent);
                         break;
-                    case 1:  // Llamar a la segunda actividad para editar
+                    case 1:  // Llamar a EditarGrupo para editar
                         Intent editIntent = new Intent(VerGrupos.this, EditarGrupo.class);
                         editIntent.putExtra("id", entry.getId());
                         editIntent.putExtra("cantidad", entry.getCantidad());
