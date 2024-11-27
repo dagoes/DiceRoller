@@ -73,11 +73,11 @@ public class Opciones extends AppCompatActivity {
         try(DBHelper dbHelper = new DBHelper(this);){
             dbHelper.emptyTable();
         } catch(Exception ignored){}
+        //Cambiar el estado del switch de sonido
+        switchSonido.setChecked(true);
         //Vaciar SharedPreferences
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
-
-        switchSonido.setChecked(true);
     }
 }

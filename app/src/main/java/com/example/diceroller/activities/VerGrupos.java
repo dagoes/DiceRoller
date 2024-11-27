@@ -99,9 +99,7 @@ public class VerGrupos extends AppCompatActivity {
                 }
             }
         });
-
         AlertDialog dialog = builder.create();
         dialog.show();
-
     }
 }

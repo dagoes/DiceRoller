@@ -15,7 +15,6 @@ import com.example.diceroller.R;
 import java.util.Random;
 
 public class LanzarDado extends AppCompatActivity {
-    private SharedPreferences sharedPreferences;
     private int cantidad, valor_maximo, suma;
     private MediaPlayer mediaPlayer;
 
@@ -28,7 +27,7 @@ public class LanzarDado extends AppCompatActivity {
         TextView textResultado = findViewById(R.id.textResultado);
         TextView textSuma = findViewById(R.id.textSuma);
 
-        sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
         cantidad = sharedPreferences.getInt("cantidad", 0);
         valor_maximo = sharedPreferences.getInt("valor_maximo", 0);
         Boolean sonido = sharedPreferences.getBoolean("sonido", true);

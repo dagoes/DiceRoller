@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="8dp"
-            android:text="Editar Grupo de Dados"
+            android:text="@string/editar_grupo"
             android:textAlignment="center"
             android:textSize="28sp"
             android:textStyle="bold" />
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Dados a lanzar:"
+            android:text="@string/dados_a_lanzar"
             android:textSize="20sp" />
 
         <EditText
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Minimo 1"
+            android:hint="@string/minimo_1"
             android:inputType="number"
             android:paddingHorizontal="8dp" />
 
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Valor Maximo:"
+            android:text="@string/valor_maximo"
             android:textSize="20sp" />
 
         <EditText
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Minimo 2"
+            android:hint="@string/minimo_1"
             android:inputType="number"
             android:paddingHorizontal="8dp" />
 
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="120dp"
         android:layout_marginVertical="16dp"
-        android:text="Guardar"
+        android:text="@string/guardar"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonVolver2"
         app:layout_constraintEnd_toEndOf="parent"

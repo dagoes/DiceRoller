@@ -2,4 +2,10 @@
     <string name="app_name">DiceRoller</string>
     <string name="volver">Volver</string>
     <string name="lanzar">Lanzar</string>
+    <string name="nuevo_grupo">Nuevo Grupo de Dados</string>
+    <string name="editar_grupo">Editar Grupo de Dados</string>
+    <string name="guardar">Guardar</string>
+    <string name="dados_a_lanzar">Dados a lanzar:</string>
+    <string name="valor_maximo">Valor Maximo:</string>
+    <string name="minimo_1">Minimo 1</string>
 </resources>
