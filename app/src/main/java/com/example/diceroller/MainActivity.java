@@ -2,6 +2,7 @@ package com.example.diceroller;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             ImageView logo = findViewById(R.id.imageLogo);
             logo.setImageResource(R.drawable.dice_icon_dark);
+            ImageView backgroundImage = findViewById(R.id.backgroundImage);
+            backgroundImage.setImageResource(R.drawable.background_image_dark);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
