@@ -5,7 +5,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.diceroller.activities.LanzarDado;
 import com.example.diceroller.activities.Opciones;
@@ -19,6 +22,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Dados", MODE_PRIVATE);
+        boolean isDarkMode = sharedPreferences.getBoolean("is_dark_mode", false);
+
+        // Configurar el modo de tema según la preferencia guardada
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            ImageView logo = findViewById(R.id.imageLogo);
+            logo.setImageResource(R.drawable.dice_icon_dark);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         Button btnUnDado = findViewById(R.id.buttonUnDado);
 

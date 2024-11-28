@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -43,22 +42,41 @@
         app:layout_constraintTop_toBottomOf="@+id/cajaTitulo" />
 
     <TextView
+        android:id="@+id/textViewTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:text="Tema"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonTheme" />
+
+    <Button android:id="@+id/buttonTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="Cambiar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchSonido"/>
+
+    <TextView
         android:id="@+id/textViewBorrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:layout_marginHorizontal="24dp"
         android:text="Borrar datos almacendos"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonBorrar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchSonido" />
+        app:layout_constraintTop_toTopOf="@+id/buttonBorrar" />
 
-    <Button
-        android:id="@+id/buttonBorrar"
+    <Button android:id="@+id/buttonBorrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
         android:layout_marginHorizontal="16dp"
         android:text="Borrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchSonido" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonTheme"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,4 +4,32 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
+    <style name="Theme.DiceRoller" parent="Base.Theme.DiceRoller" >
+        <!--  Colores del tema en modo oscuro  -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/blue_dark</item>
+        <!--  Fondo de la aplicación en modo oscuro  -->
+        <item name="android:windowBackground">@drawable/background_dark</item>
+        <!--  Texto de la aplicación en modo oscuro  -->
+        <item name="android:textColor">@android:color/white</item>
+        <!--  Estilo del botón en modo oscuro  -->
+        <item name="buttonStyle">@style/CustomButtonStyle</item>
+        <!--  Estilo del botón imagen en modo oscuro  -->
+        <item name="imageButtonStyle">@style/CustomImageButtonStyle</item>
+    </style>
+
+    <!--  Estilo para los botones  -->
+    <style name="CustomButtonStyle">
+        <!--  Color del botón  -->
+        <item name="android:backgroundTint">@color/blue</item>
+    </style>
+
+    <!--  Estilo para los botones imagen  -->
+    <style name="CustomImageButtonStyle">
+        <item name="android:backgroundTint">@color/black</item>
+        <!--  Fondo del botón  -->
+        <item name="android:padding">10dp</item>
+    </style>
+
 </resources>

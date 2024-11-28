@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.diceroller.R;
 import com.example.diceroller.database.DBHelper;
@@ -34,6 +35,25 @@ public class Opciones extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean("sonido", isChecked);
             editor.apply();
+        });
+
+        Button btnTheme = findViewById(R.id.buttonTheme);
+
+        btnTheme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int currentNightMode = getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK;
+
+                if (currentNightMode == android.content.res.Configuration.UI_MODE_NIGHT_YES) {
+                    // Cambiar a modo claro
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    sharedPreferences.edit().putBoolean("is_dark_mode", false).apply();
+                } else {
+                    // Cambiar a modo oscuro
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    sharedPreferences.edit().putBoolean("is_dark_mode", true).apply();
+                }
+            }
         });
 
         Button btnBorrar = findViewById(R.id.buttonBorrar);
@@ -73,8 +93,10 @@ public class Opciones extends AppCompatActivity {
         try(DBHelper dbHelper = new DBHelper(this);){
             dbHelper.emptyTable();
         } catch(Exception ignored){}
-        //Cambiar el estado del switch de sonido
+        //Cambiar el estado de sonido a activado
         switchSonido.setChecked(true);
+        // Cambiar a modo claro
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         //Vaciar SharedPreferences
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();

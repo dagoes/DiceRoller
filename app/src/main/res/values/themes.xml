@@ -5,5 +5,19 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.DiceRoller" parent="Base.Theme.DiceRoller" />
+    <style name="Theme.DiceRoller" parent="Base.Theme.DiceRoller" >
+        <!--  Colores del tema en modo claro  -->
+        <item name="colorPrimary">@color/blue_dark</item>
+        <item name="colorPrimaryDark">@color/blue_darker</item>
+        <!--  Fondo de la aplicación en modo claro  -->
+        <item name="android:windowBackground">@drawable/background_light</item>
+        <!--  Estilo del botón en modo claro  -->
+        <item name="buttonStyle">@style/CustomButtonStyle</item>
+    </style>
+
+    <!--  Estilo para los botones  -->
+    <style name="CustomButtonStyle">
+        <item name="android:backgroundTint">@color/blue_dark</item>
+        <!--  Fondo del botón  -->
+    </style>
 </resources>
