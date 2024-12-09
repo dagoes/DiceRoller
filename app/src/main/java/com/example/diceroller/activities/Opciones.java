@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -92,7 +93,10 @@ public class Opciones extends AppCompatActivity {
         //Vaciar Tabla de SQLite
         try(DBHelper dbHelper = new DBHelper(this);){
             dbHelper.emptyTable();
-        } catch(Exception ignored){}
+            Toast.makeText(Opciones.this,"Base de datos borrada",Toast.LENGTH_SHORT).show();
+        } catch(Exception ignored){
+            Toast.makeText(Opciones.this,"No se pudo borrar la base de datos",Toast.LENGTH_SHORT).show();
+        }
         //Cambiar el estado de sonido a activado
         switchSonido.setChecked(true);
         // Cambiar a modo claro

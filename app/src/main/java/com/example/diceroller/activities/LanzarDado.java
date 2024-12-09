@@ -3,6 +3,7 @@ package com.example.diceroller.activities;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -42,7 +43,8 @@ public class LanzarDado extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (sonido && mediaPlayer != null) mediaPlayer.start();
-                textResultado.setText(lanzar());
+                String resultado = lanzar();
+                textResultado.setText(Html.fromHtml(resultado, Html.FROM_HTML_MODE_LEGACY));
                 textSuma.setText(String.valueOf(suma));
             }
         });
@@ -89,11 +91,15 @@ public class LanzarDado extends AppCompatActivity {
         } else {
             StringBuilder resultado = new StringBuilder();
             for (int i = 0; i < cantidad; i++) {
-                if (i > 0) resultado.append(", ");
                 // Número aleatorio entre 1 y valor_maximo
                 numeroDado = random.nextInt(valor_maximo) + 1;
-                suma = suma + numeroDado;
-                resultado.append(numeroDado);
+                suma += numeroDado;
+                if (i > 0) resultado.append(", ");
+                if (numeroDado == valor_maximo) {
+                    resultado.append("<b><FONT COLOR=\"red\">").append(numeroDado).append("</FONT></b>");
+                } else {
+                    resultado.append(numeroDado);
+                }
             }
             return resultado.toString();
         }
