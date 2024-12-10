@@ -59,24 +59,27 @@ public class Opciones extends AppCompatActivity {
 
         Button btnBorrar = findViewById(R.id.buttonBorrar);
 
-        btnBorrar.setOnClickListener(v -> {
-            new AlertDialog.Builder(Opciones.this)
-                    .setTitle("Confirmar Borrado")
-                    .setMessage("¿Estás seguro de que deseas borrar todos los datos?")
-                    .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            borrarDatos();
-                        }
-                    })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
-                    .setCancelable(false)
-                    .show();
+        btnBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(Opciones.this)
+                        .setTitle("Confirmar Borrado")
+                        .setMessage("¿Estás seguro de que deseas borrar todos los datos?")
+                        .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                borrarDatos();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setCancelable(false)
+                        .show();
+            }
         });
 
         ImageButton btnVolver = findViewById(R.id.imageButtonVolver3);
@@ -91,7 +94,7 @@ public class Opciones extends AppCompatActivity {
 
     private void borrarDatos() {
         //Vaciar Tabla de SQLite
-        try(DBHelper dbHelper = new DBHelper(this);){
+        try(DBHelper dbHelper = new DBHelper(this)){
             dbHelper.emptyTable();
             Toast.makeText(Opciones.this,"Base de datos borrada",Toast.LENGTH_SHORT).show();
         } catch(Exception ignored){

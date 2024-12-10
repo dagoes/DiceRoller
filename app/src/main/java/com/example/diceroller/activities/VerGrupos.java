@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,9 +21,7 @@ import java.util.List;
 
 public class VerGrupos extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private EntryAdapter adapter;
     private DBHelper dbHelper;
-    private List<Entry> entryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +60,8 @@ public class VerGrupos extends AppCompatActivity {
     }
 
     private void loadEntries() {
-        entryList = dbHelper.getAllEntries();
-        adapter = new EntryAdapter(entryList, this, this::onItemClick);
+        List<Entry> entryList = dbHelper.getAllEntries();
+        EntryAdapter adapter = new EntryAdapter(entryList, this, this::onItemClick);
         recyclerView.setAdapter(adapter);
     }
 
@@ -93,6 +92,7 @@ public class VerGrupos extends AppCompatActivity {
                     case 2:  // Eliminar el elemento de la base de datos
                         dbHelper.deleteEntry(entry.getId());
                         loadEntries(); // Recargar la lista después de eliminar
+                        Toast.makeText(VerGrupos.this, "Grupo borrado", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

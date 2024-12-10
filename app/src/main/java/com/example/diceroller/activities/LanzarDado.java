@@ -43,8 +43,7 @@ public class LanzarDado extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (sonido && mediaPlayer != null) mediaPlayer.start();
-                String resultado = lanzar();
-                textResultado.setText(Html.fromHtml(resultado, Html.FROM_HTML_MODE_LEGACY));
+                textResultado.setText(Html.fromHtml(lanzar(), Html.FROM_HTML_MODE_LEGACY));
                 textSuma.setText(String.valueOf(suma));
             }
         });
